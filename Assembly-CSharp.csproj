@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnswerToggle.cs" />
-     <Compile Include="Assets\Scripts\IEnumerableExtension.cs" />
      <Compile Include="Assets\Scripts\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\QuestionManager.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
