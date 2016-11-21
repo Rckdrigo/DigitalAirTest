@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D46A65ED-87AD-D2D3-0493-4CF8807E7B5A}</ProjectGuid>
+    <ProjectGuid>{26AAD080-B718-48E1-405C-961941668DD2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,11 +59,11 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="YamlDotNet.RepresentationModel">
- <HintPath>/Users/Shared/Unity/Multiplayer/Assets/Scripts/YamlDotNet.RepresentationModel.2.2.0/lib/net35/YamlDotNet.RepresentationModel.dll</HintPath>
- </Reference>
  <Reference Include="YamlDotNet.Core">
- <HintPath>/Users/Shared/Unity/Multiplayer/Assets/Scripts/YamlDotNet.Core.2.2.0/lib/net35/YamlDotNet.Core.dll</HintPath>
+ <HintPath>/Users/Rckdrigo/Documents/Proyectos/DigitalAIRTest/Assets/Scripts/YamlDotNet.Core.2.2.0/lib/net35/YamlDotNet.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="YamlDotNet.RepresentationModel">
+ <HintPath>/Users/Rckdrigo/Documents/Proyectos/DigitalAIRTest/Assets/Scripts/YamlDotNet.RepresentationModel.2.2.0/lib/net35/YamlDotNet.RepresentationModel.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

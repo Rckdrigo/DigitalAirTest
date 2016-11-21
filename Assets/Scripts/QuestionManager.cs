@@ -28,6 +28,12 @@ public class Questions
 
 	public string Incorrect3 { get; set; }
 
+	public string Incorrect4 { get; set; }
+
+	public string Incorrect5 { get; set; }
+
+	public string Incorrect6 { get; set; }
+
 	public int correctAnswerIndex;
 
 	public List<string> GetAnswers ()
@@ -39,6 +45,12 @@ public class Questions
 			answers.Add (Incorrect2);
 		if (Incorrect3 != null)
 			answers.Add (Incorrect3);
+		if (Incorrect4 != null)
+			answers.Add (Incorrect4);
+		if (Incorrect5 != null)
+			answers.Add (Incorrect5);
+		if (Incorrect6 != null)
+			answers.Add (Incorrect6);
 
 
 		List<string> randomizedList = new List<string> ();
@@ -78,26 +90,31 @@ public class QuestionManager : MonoBehaviour
 
 
 	// Use this for initialization
-	//	IEnumerator Start()
-	//	{
-	//		WWW www = new WWW("https://digitalairtest.000webhostapp.com/Questions.yaml");
-	//		yield return www;
-	//
-	//		questionsYaml = www.text;
-	//		Debug.Log(questionsYaml);
-	//		ParseYamltoQuestions();
-	//	}
-
-	void Start ()
+	IEnumerator Start ()
 	{
-		usedQuestions = new  List<Questions> ();
-		ParseYamltoQuestions ();
 		Instance = this;
+		usedQuestions = new  List<Questions> ();
+
+		WWW www = new WWW ("https://digitalairtest.000webhostapp.com/Questions.yaml");
+		yield return www;
+	
+		if (www.text.Equals (string.Empty))
+			questionsYaml = yamlTxt.text;
+		else
+			questionsYaml = www.text;
+		
+		Debug.Log (questionsYaml);
+		ParseYamltoQuestions ();
 	}
+
+	//	void Start ()
+	//	{
+	//
+	//	}
 
 	void ParseYamltoQuestions ()
 	{
-		var input = new StringReader (yamlTxt.text);
+		var input = new StringReader (questionsYaml);
             
 		var deserializer = new Deserializer (namingConvention: new CamelCaseNamingConvention ());
             

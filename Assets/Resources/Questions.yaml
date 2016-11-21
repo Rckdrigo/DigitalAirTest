@@ -1,22 +1,54 @@
 questions:
     - question:   What is love?
-      answer:   baby I love
-      incorrect1:     0
-      incorrect2:  0
-      incorrect3:  0
+      answer:   a chemical reaction
+      incorrect1:     pain
+      incorrect2:  a word
 
-    - question:   E1628
+    - question:   Is this test weird?
       answer:   true
-      incorrect1:  0
-      incorrect2:  1
+      incorrect1:  mostly true
+      incorrect2:  mostly false
+      incorrect2:  false
 
-    - question:   What is love 2?
-      answer:   baby I love
-      incorrect1:  0
-      incorrect2:  0
-      incorrect3:  0
+    - question:   The answer to life, the universe and everything?
+      answer:   42
+      incorrect1:  time travel
+      incorrect2:  e = mc^2
+      incorrect3:  irony
 
-    - question:   E1628 2
-      answer:   1
-      incorrect1:  0  
-      incorrect2:  0
+    - question:   What planet is this?
+      answer:   Earth
+      incorrect1:  Mars 
+      incorrect2:  Venus
+      
+    - question:   Most popular store in Bangkok
+      answer:   7/11
+      incorrect1:  Tesco  
+      
+    - question:   Most annoying character in Super Smash
+      answer:   Metaknight
+      incorrect1:  Kirby 
+      incorrect2:  Falco
+      incorrect3:  Ganondorf
+      incorrect4:  Link
+      
+    - question:   Max value of an integer
+      answer:   2147483647
+      incorrect1:  2147483648 
+      incorrect2:  2147483637
+      
+    - question:   Best beer in bangkok?
+      answer:   Beer lao
+      incorrect1:  Chang
+      incorrect2:  Singha
+      incorrect3:  Leo
+      
+    - question:   Real identity of Superman?
+      answer:   Clark Kent
+      incorrect1:  Peter Parker
+      incorrect2:  Bruce Wayne
+      incorrect3:  Tony Stark
+      
+    - question:   Are you nuts?
+      answer:   yes
+      incorrect1:  no
