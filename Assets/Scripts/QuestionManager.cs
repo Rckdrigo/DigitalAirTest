@@ -99,7 +99,7 @@ public class QuestionManager : MonoBehaviour
 		WWW www = new WWW ("https://digitalairtest.000webhostapp.com/Questions.yaml");
 		yield return www;
 	
-		if (www.text.Equals (string.Empty))
+		if (!string.IsNullOrEmpty (www.error))
 			questionsYaml = yamlTxt.text;
 		else
 			questionsYaml = www.text;
