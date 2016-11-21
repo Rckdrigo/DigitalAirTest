@@ -84,6 +84,7 @@ public class QuestionManager : MonoBehaviour
 	public TextAsset yamlTxt;
 
 	public static QuestionManager Instance;
+	public UnityEngine.UI.Button welcome;
 
 	private Quiz quiz;
 	private List<Questions> usedQuestions;
@@ -103,7 +104,7 @@ public class QuestionManager : MonoBehaviour
 		else
 			questionsYaml = www.text;
 		
-		Debug.Log (questionsYaml);
+//		Debug.Log (questionsYaml);
 		ParseYamltoQuestions ();
 	}
 
@@ -120,6 +121,7 @@ public class QuestionManager : MonoBehaviour
             
 		quiz = deserializer.Deserialize<Quiz> (input);
            
+		welcome.interactable = true;
 //		foreach (var item in quiz.questions) {
 //			print ("Question: " + item.Question + "\t" + item.Answer + "\t" + item.Incorrect1 + "\t" + item.Incorrect2 + "\t" + item.Incorrect3);
 //		}
