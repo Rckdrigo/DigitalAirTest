@@ -14,7 +14,8 @@ public class ScreenController : MonoBehaviour
 
 	public void StartGame ()
 	{
-		anim.SetTrigger ("Start");
+		if (QuestionManager.Instance.doneLoading)
+			anim.SetTrigger ("Start");
 	}
 
 	public void WinGame ()

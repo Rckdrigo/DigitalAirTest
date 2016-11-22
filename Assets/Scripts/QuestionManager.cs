@@ -77,20 +77,22 @@ public class Questions
 
 public class QuestionManager : MonoBehaviour
 {
+	
+	public TextAsset yamlTxt;
+
+	public static QuestionManager Instance;
+	public bool doneLoading;
+
 	private string questionsYaml;
 	private WWW www;
 
 	//Test
-	public TextAsset yamlTxt;
-
-	public static QuestionManager Instance;
-	public UnityEngine.UI.Button welcome;
 
 	private Quiz quiz;
 	private List<Questions> usedQuestions;
 
 	private float loadTimeLimit = 2f;
-	private bool failLoading;
+	private bool failLoading = true;
 
 	// Use this for initialization
 	IEnumerator Start ()
@@ -100,11 +102,11 @@ public class QuestionManager : MonoBehaviour
 
 		WWW www = new WWW ("https://digitalairtest.000webhostapp.com/Questions.yaml");
 
-		while (!www.isDone) {
+		while (loadTimeLimit > 0) {
 			yield return new WaitForSecondsRealtime (0.25f);
 			loadTimeLimit -= 0.25f;
-			if (loadTimeLimit == 0) {
-				failLoading = true;
+			if (www.isDone) {
+				failLoading = false;
 				break;
 			}
 		}
@@ -113,7 +115,9 @@ public class QuestionManager : MonoBehaviour
 			questionsYaml = yamlTxt.text;
 		else
 			questionsYaml = www.text;
-		
+
+		doneLoading = true;
+
 		Debug.Log ("questionsYaml " + failLoading);
 		ParseYamltoQuestions ();
 	}
@@ -126,7 +130,6 @@ public class QuestionManager : MonoBehaviour
             
 		quiz = deserializer.Deserialize<Quiz> (input);
            
-		welcome.interactable = true;
 //		foreach (var item in quiz.questions) {
 //			print ("Question: " + item.Question + "\t" + item.Answer + "\t" + item.Incorrect1 + "\t" + item.Incorrect2 + "\t" + item.Incorrect3);
 //		}

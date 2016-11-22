@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
 	[SerializeField] private int minScoreToWin = 3;
 	[SerializeField] private int minFailsToLose = 2;
 
-	private AudioSource audio;
+	private new AudioSource audio;
 	public AudioClip correctSFX, wrongSFX;
 
 	private int currentScore = 0;

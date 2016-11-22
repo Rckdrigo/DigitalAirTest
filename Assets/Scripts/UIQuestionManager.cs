@@ -34,7 +34,7 @@ public class UIQuestionManager : MonoBehaviour
 			questionText.text = question.Question;
 			for (int i = 0; i < answers.Count; i++) {
 				GameObject temp = ObjectPool.instance.GetGameObjectOfType ("Toggle");
-				temp.transform.parent = answerParent;
+				temp.transform.SetParent (answerParent);
 
 				temp.GetComponent<AnswerToggle> ().SetValue (answers [i]);
 			} 
