@@ -89,6 +89,8 @@ public class QuestionManager : MonoBehaviour
 	private Quiz quiz;
 	private List<Questions> usedQuestions;
 
+	private float loadTimeLimit = 2f;
+	private bool failLoading;
 
 	// Use this for initialization
 	IEnumerator Start ()
@@ -97,21 +99,24 @@ public class QuestionManager : MonoBehaviour
 		usedQuestions = new  List<Questions> ();
 
 		WWW www = new WWW ("https://digitalairtest.000webhostapp.com/Questions.yaml");
-		yield return www;
+
+		while (!www.isDone) {
+			yield return new WaitForSecondsRealtime (0.25f);
+			loadTimeLimit -= 0.25f;
+			if (loadTimeLimit == 0) {
+				failLoading = true;
+				break;
+			}
+		}
 	
-		if (!string.IsNullOrEmpty (www.error))
+		if (!string.IsNullOrEmpty (www.error) || failLoading)
 			questionsYaml = yamlTxt.text;
 		else
 			questionsYaml = www.text;
 		
-//		Debug.Log (questionsYaml);
+		Debug.Log ("questionsYaml " + failLoading);
 		ParseYamltoQuestions ();
 	}
-
-	//	void Start ()
-	//	{
-	//
-	//	}
 
 	void ParseYamltoQuestions ()
 	{
