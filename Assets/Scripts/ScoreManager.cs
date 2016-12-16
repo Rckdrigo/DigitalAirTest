@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour
 
 	[SerializeField] private Image button;
 	[SerializeField] private Text winText, loseText;
+	[SerializeField] private GameObject noConnection;
 
 	private new AudioSource audio;
 
@@ -89,7 +90,8 @@ public class ScoreManager : MonoBehaviour
 			WWW www = new WWW ("https://digitalairtest.000webhostapp.com/postHighScore.php", form);
 			yield return www;
 			if (!string.IsNullOrEmpty (www.error)) {
-				print (www.error);
+				noConnection.SetActive (true);
+				yield break;
 			} else {
 				print ("Finished Uploading High Score");
 			}
@@ -102,9 +104,10 @@ public class ScoreManager : MonoBehaviour
 
 		WWW www = new WWW ("https://digitalairtest.000webhostapp.com/highScores.txt");
 		yield return www;
-		if (!string.IsNullOrEmpty (www.error))
-			print (www.error);
-		else
+		if (!string.IsNullOrEmpty (www.error)) {
+			noConnection.SetActive (true);
+			yield break;
+		} else
 			print ("Finished Reading High Score");
 
 		print ("www " + www.text);

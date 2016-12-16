@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,21 +79,24 @@ public class Questions
 public class QuestionManager : MonoBehaviour
 {
 	
-	public TextAsset yamlTxt;
+	//	public TextAsset yamlTxt;
 
 	public static QuestionManager Instance;
 	public bool doneLoading;
+
+	[SerializeField] private GameObject noConnection;
 
 	private string questionsYaml;
 	private WWW www;
 
 	//Test
-
 	private Quiz quiz;
 	private List<Questions> usedQuestions;
 
 	private float loadTimeLimit = 2f;
 	private bool failLoading = true;
+
+
 
 	// Use this for initialization
 	IEnumerator Start ()
@@ -111,9 +115,11 @@ public class QuestionManager : MonoBehaviour
 			}
 		}
 	
-		if (!string.IsNullOrEmpty (www.error) || failLoading)
-			questionsYaml = yamlTxt.text;
-		else
+		if (!string.IsNullOrEmpty (www.error) || failLoading) {
+			noConnection.SetActive (true);
+
+			yield break;
+		} else
 			questionsYaml = www.text;
 
 		doneLoading = true;
@@ -153,5 +159,10 @@ public class QuestionManager : MonoBehaviour
 	public void CleanUsedQuestions ()
 	{
 		usedQuestions.Clear ();
+	}
+
+	public void ReloadGame ()
+	{
+		SceneManager.LoadScene (0);
 	}
 }
