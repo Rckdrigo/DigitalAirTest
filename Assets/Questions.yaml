@@ -1,8 +1,8 @@
 questions:
     - question:   What is love?
-      answer:   a chemical reaction
-      incorrect1:     pain
-      incorrect2:  a word
+      answer:  - a chemical reaction
+      incorrect1:    - pain
+      incorrect2:  - a word
 
     - question:   Is this test weird?
       answer:   true
